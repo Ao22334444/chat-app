@@ -45,13 +45,12 @@
   </div>
 </div>
 
-<div class="form">
-  <div class="form-input">
-    <input class="form-message" placeholder= "type a message">
-    <label class="form-image">
-      <span class="image-file">画像</span>
-      <input type="file" class="hidden">
-    </label>
-  </div>
-  <input class="form-submit" type="submit" value="送信">
+<div class="rooms">
+  <% current_user.rooms.each do |room| %>
+    <div class="room">
+      <div class="room-name">
+        <%= link_to room.name, room_messages_path(room) %>
+      </div>
+    </div>
+  <% end %>
 </div>
